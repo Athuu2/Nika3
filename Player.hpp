@@ -63,7 +63,7 @@ struct Player {
         base = 0;
     }
     std::string getPlayerName(){
-        nameIndex = mem::Read<uintptr_t>(base + OFF_NAMEINDEX);       //player + 0x38
+        nameIndex = mem::Read<uintptr_t>(base + OFF_NAMEINDEX);
         nameOffset = mem::Read<uintptr_t>(OFF_REGION + OFF_NAMELIST + ((nameIndex - 1) * 24 ));       //Region + NameList
         std::string playerName = mem::ReadString(nameOffset, 64);
         return playerName;
